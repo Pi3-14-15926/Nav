@@ -13,7 +13,7 @@
       [autoplay]="commonService.settings().sideThemeAutoplay"
       [height]="commonService.settings().sideThemeHeight"
     />
-    <app-search />
+    <app-search [title]="commonService.settings().sideTitle || commonService.title()" />
     <component-group />
     <div class="px-2.5">
       <app-web-list [search]="false" [overflow]="true" [iconSize]="35" />

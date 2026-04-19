@@ -41,6 +41,7 @@ export class SearchComponent {
   @ViewChild('input', { static: false }) input!: ElementRef
   @Input() size: 'small' | 'default' | 'large' = 'large'
   @Input() showLogo = true
+  @Input() title = ''
 
   readonly $t = $t
   readonly isLogin = isLogin

@@ -2,12 +2,21 @@
   class="search-engine"
   *ngIf="searchEngineList && searchEngineList.length > 0"
 >
-  <img
-    *ngIf="showLogo && logoImage"
-    class="pointer-events-none mb-4 select-none"
-    [src]="logoImage"
-    [ngStyle]="{ maxHeight: search.height + 'px' }"
-  />
+  <div
+    *ngIf="(showLogo && logoImage) || title"
+    class="search-header"
+  >
+    <img
+      *ngIf="showLogo && logoImage"
+      class="search-logo pointer-events-none select-none"
+      [src]="logoImage"
+      [ngStyle]="{ maxHeight: search.height + 'px' }"
+    />
+    <div *ngIf="title" class="search-title-group">
+      <div class="search-title dark-text">{{ title }}</div>
+      <div class="search-subtitle dark-text">希望对你有所帮助~</div>
+    </div>
+  </div>
 
   <div
     class="input-wrapper dark-bg dark-border-color max-[768px]:!w-[90%]"

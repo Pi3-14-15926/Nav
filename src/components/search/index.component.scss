@@ -4,7 +4,45 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 10px 0;
+  padding: 36px 0 10px;
+
+  .search-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .search-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    object-fit: cover;
+  }
+
+  .search-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .search-title {
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .search-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.85;
+  }
+
   .input-wrapper {
     position: relative;
     width: 650px;
