@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core'
 import { registerLocaleData } from '@angular/common'
 import zh from '@angular/common/locales/zh'
-import { provideRouter, withHashLocation } from '@angular/router'
+import { provideRouter } from '@angular/router'
 import { provideNzIcons } from 'ng-zorro-antd/icon'
 import { IconDefinition } from '@ant-design/icons-angular'
 import { routes } from './app.routes'
@@ -23,7 +23,7 @@ import {
 import { provideAnimations } from '@angular/platform-browser/animations'
 import { NZ_I18N } from 'ng-zorro-antd/i18n'
 import { zh_CN } from 'ng-zorro-antd/i18n'
-import config from '../../nav.config.json'
+
 import { provideServiceWorker } from '@angular/service-worker'
 import { isMobile } from 'src/utils'
 import { unregisterServiceWorkers } from 'src/utils/sw'
@@ -47,7 +47,6 @@ const icons: IconDefinition[] = [
 ]
 
 const isPhone = isMobile()
-const isHashMode = window.__HASH_MODE__ ?? config.hashMode
 const pwaEnable =
   window.__PWA_ENABLE__ && location.protocol === 'https:' ? isPhone : false
 
@@ -59,9 +58,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideNzIcons(icons),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    isHashMode
-      ? provideRouter(routes, withHashLocation())
-      : provideRouter(routes),
+    provideRouter(routes),
     provideAnimations(),
     { provide: NZ_I18N, useValue: zh_CN },
     provideServiceWorker('ngsw-worker.js', {
