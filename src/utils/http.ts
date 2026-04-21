@@ -106,8 +106,8 @@ export function getDefaultRequestData(data?: any) {
   const { email, language } = settings()
   return {
     code,
-    hostname: location.hostname,
-    host: location.host,
+    hostname: 'localhost',
+    host: 'localhost',
     href: location.href,
     isLogin,
     ...config,
@@ -143,8 +143,6 @@ httpNavInstance.interceptors.response.use(
   },
   function (error) {
     if (error.response?.data?.statusCode === 401) {
-      removeAuthCode()
-      location.reload()
     }
 
     let showError = true
